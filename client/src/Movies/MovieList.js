@@ -36,6 +36,7 @@ function MovieDetails({ movie }) {
     <div className="movie-card">
       <h2>{title}</h2>
       <Link to={`/movies/${movie.id}`}>Movie Details</Link>
+      {/* Here is where a user can click to see details about a specific movie by grabbing the movie id */}
       <div className="movie-director">
         Director: <em>{director}</em>
       </div>

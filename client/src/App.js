@@ -16,8 +16,10 @@ const App = () => {
   return (
     <div>
       <SavedList list={savedList} />
+      {/* all the routes!  */}
       <Route exact path="/" component={MovieList} /> 
       <Route path="/movies/:id" component={Movie} /> 
+      {/* the id here is dynamic and will load the Movie component */}
     </div>
   );
 };

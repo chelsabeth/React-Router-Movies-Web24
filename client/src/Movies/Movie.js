@@ -8,9 +8,10 @@ const Movie = (props) => {
  
   useEffect(() => {
     const id = props.match.params.id;
+      // grabs specific id from each movie
+      
     // change ^^^ that line and grab the id from the URL
     // You will NEED to add a dependency array to this effect hook
-    // grabs specific id from each movie
 
        axios
         .get(`http://localhost:5000/api/movies/${id}`)
