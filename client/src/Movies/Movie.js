@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Movie = (props) => {
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState();
+
+  console.log(props);
  
   useEffect(() => {
     const id = props.match.params.id;
@@ -21,16 +23,18 @@ const Movie = (props) => {
   },[]);
   
   // Uncomment this only when you have moved on to the stretch goals
-  // const saveMovie = () => {
-  //   const addToSavedList = props.addToSavedList;
-  //   addToSavedList(movie)
-  // }
+  const saveMovie = () => {
+    // const addToSavedList = props.addToSavedList;
+    // addToSavedList(movie)
+    return;
+  }
 
   if (!movie) {
     return <div>Loading movie information...</div>;
   }
 
   const { title, director, metascore, stars } = movie;
+  console.log(movie);
   return (
     <div className="save-wrapper">
       <div className="movie-card">
@@ -41,7 +45,7 @@ const Movie = (props) => {
         <div className="movie-metascore">
           Metascore: <strong>{metascore}</strong>
         </div>
-        <h3>Actors</h3>
+        <h3>Actors: </h3>
 
         {stars.map(star => (
           <div key={star} className="movie-star">
@@ -49,7 +53,8 @@ const Movie = (props) => {
           </div>
         ))}
       </div>
-      <div className="save-button">Save</div>
+      <button className="save-button" onClick={saveMovie}>Save</button> 
+      {/* Stretch Goal */}
     </div>
   );
 }
